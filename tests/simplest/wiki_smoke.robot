@@ -8,6 +8,7 @@ ${url}              /
 
 *** Test Cases ***
 Проверить доступность Wiki
+    [Tags]  wiki
                     Create session     conn     ${base_url}    disable_warnings=1
     ${response}     Get request        conn     ${url}
                     Delete all sessions

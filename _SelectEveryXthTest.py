@@ -27,3 +27,4 @@ class ExcludeTests(SuiteVisitor):
 
     def visit_test(self, test):
         """Avoid visiting tests and their keywords to save a little time."""
+        pass

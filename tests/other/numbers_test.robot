@@ -4,6 +4,7 @@ Library             libraries.ArrayGeneratorLibrary
 
 *** Test Cases ***
 Работа с библиотекой, написанной на python.
+    [Tags]  tags_for_example
     ${array}        Генерировать массив чисел    ${5}    ${2}    ${8}
     Log to console    ${array}
 
@@ -20,6 +21,7 @@ Library             libraries.ArrayGeneratorLibrary
     END
 
 Пример декоратора метода
+    [Tags]  tags_for_example2
     ${negs}         Найти отрицательные числа в ответе, вызвав  Генерировать массив чисел  10  -5  5
     log to console  ${negs}
 
