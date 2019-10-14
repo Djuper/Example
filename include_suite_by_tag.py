@@ -1,7 +1,7 @@
 from robot.parsing import TestData
 
 
-class ProjectSuites:
+class IncludeSuites:
 
     def __init__(self, tags):
         self.tags = list(tags.replace(" ", "").split(","))
@@ -22,6 +22,9 @@ class ProjectSuites:
         for child_suite in s.children:
             self._check_tag(child_suite)
 
+    def get_suites(self):
+        return self.suites_list
+
 
 def get_tags(suite):
     tags = []
@@ -38,5 +41,3 @@ def get_tags(suite):
 
     return tags
 
-
-ProjectSuites('Newton, wiki')
