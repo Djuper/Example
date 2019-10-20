@@ -8,19 +8,19 @@ class ExcludedSuites:
         self.tags = list(tags.replace(" ", "").split(","))
         calculate_suites = GetSuitesList()
         self.suites_list = calculate_suites.get_suites()
-        print('Полный перечень сютов', self.suites_list)
-        print('Исключаем сюты в который есть тег - ', self.tags, '\n--------------------------------------')
+        print(f'Полный перечень сютов: {self.suites_list}')
+        print(f'Исключаем сюты в которых есть теги: {self.tags} \n--------------------------------------')
         self.suites = TestData(source='tests')
         self._check_tag(self.suites)
-        print('\nФинальный список сютов:', self.suites_list)
+        print(f'\nФинальный список сютов: {self.suites_list}')
 
     def _check_tag(self, s):
         if s.testcase_table.tests:
             tags = get_tags(s)
-            print('Перечень тегов сюта', s.name, '-', tags)
+            print(f'Перечень тегов сюта: \'{s.name}\' - {tags}')
             if [tag for tag in self.tags if tag in tags]:
                 self.suites_list.remove(s.name)
-                print('|------> Cют', s.name, 'исключен')
+                print(f'|------> Cют \'{s.name}\' исключен')
 
         for child_suite in s.children:
             self._check_tag(child_suite)
