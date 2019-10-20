@@ -1,7 +1,7 @@
 from robot.parsing import TestData
 
 
-class ProjectSuites:
+class GetSuitesList:
 
     def __init__(self):
         self.suites = TestData(parent=None, source='tests')

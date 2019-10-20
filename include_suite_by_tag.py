@@ -5,7 +5,7 @@ class ProjectSuites:
 
     def __init__(self, tags):
         self.tags = list(tags.replace(" ", "").split(","))
-        print('Ищем сюты в которых есть тег - ', self.tags, '\n--------------------------------------')
+        print('Ищем сюты в которых есть тег - ', self.tags, '\n', '-'*60)
         self.suites = TestData(source='tests')
         self.suites_list = []
         self._check_tag(self.suites)
@@ -37,6 +37,3 @@ def get_tags(suite):
             tags.extend(testcase.tags.value)
 
     return tags
-
-
-ProjectSuites('Newton, wiki')

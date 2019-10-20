@@ -1,12 +1,12 @@
 from robot.parsing import TestData
-from get_suites_list import ProjectSuites
+from get_suites_list import GetSuitesList
 
 
 class ExcludedSuites:
 
     def __init__(self, tags):
         self.tags = list(tags.replace(" ", "").split(","))
-        calculate_suites = ProjectSuites()
+        calculate_suites = GetSuitesList()
         self.suites_list = calculate_suites.get_suites()
         print('Полный перечень сютов', self.suites_list)
         print('Исключаем сюты в который есть тег - ', self.tags, '\n--------------------------------------')
@@ -40,6 +40,3 @@ def get_tags(suite):
             tags.extend(testcase.tags.value)
 
     return tags
-
-
-ExcludedSuites('Newton, wiki')
